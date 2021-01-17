@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Date & Time</title>
+</head>
+<body>
+
+    <h1>Date & Time</h1>
+
+    <h3>Summary</h3>
+    <ul>
+        <li><a href="#h2-date">Date</a></li>
+        <li><a href="#h2-time">Time</a></li>
+        <li><a href="#h2-liveclock">Live Clock</a></li>
+    </ul>
+
+    <section>
+        <h2 id="h2-date">Date</h2>
+    
+        <article>
+            <h3>Full date</h3>
+        
+            <p class="code pre">
+let today = new Date();
+            </p>
+            <p id="p0-a"></p>
+        
+            <p class="code pre">
+today.toLocaleDateString();
+            </p>
+            <p id="p0-b"></p>
+        </article>
+    
+        <article>
+            <h3>Year</h3>
+        
+            <p class="code pre">
+today.getFullYear();
+            </p>
+            <p id="p1"></p>
+        </article>
+    
+        <article>
+            <h3>getYear()</h3>
+        
+            <p class="code pre">
+today.getYear();
+            </p>
+            <p id="p2"></p>
+            <p class="expli">= current year &mdash; 1900</p>
+        </article>
+    
+        <article>
+            <h3>getMonth()</h3>
+            
+            <p class="code pre">
+today.getMonth();
+            </p>
+            <p id="p3"></p>
+            <p class="expli">Month number starting from 0.</p>
+        </article>
+    
+        <article>
+            <h3>Month name</h3>
+            
+            <p class="code pre">
+let monthNames = new Array(
+    'January', 'February',  'March',  'April',  'May',  'June',
+    'July',  'August',  'September',  'October',  'November',  'December'
+);
+/* e.g. */ let january = monthNames[0];
+let currentMonth = monthNames[today.getMonth()];
+            </p>
+            <p id="p4"></p>
+        </article>
+    
+        <article>
+            <h3>getDay()</h3>
+            
+            <p class="code pre">
+today.getDay();
+            </p>
+            <p id="p5"></p>
+        
+            <p class="code pre">
+let dayNames = new Array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+for(let i = 0; i &lt; dayNames.length; i++){
+    document.querySelector('#p6').innerHTML += dayNames[i] + ' ';
+}
+            </p>
+            <p>Days of the week:</p>
+            <p id="p6"></p>
+        </article>
+    </section>
+
+<!--  -->
+
+    <section>
+        <h2 id="h2-time">Time</h2>
+    
+        <article>
+            <h3>toLocaleTimeString()</h3>
+            <p class="code pre">
+today.toLocaleTimeString();
+            </p>
+            <p id="p7"></p>
+        </article>
+    
+        <article>
+            <h3>getTime()</h3>
+            <p class="code pre">
+today.getTime();
+            </p>
+            <p id="p8"></p>
+            <p class="expli">Number of milliseconds since 1970/01/01.</p>
+        </article>
+    
+        <article>
+            <h3>Hours/Minutes/Seconds</h3>
+            <p class="code pre">
+        today.getHours<span class="red">/</span>Minutes<span class="red">/</span>Seconds();
+            </p>
+            <p>
+                <span id="span1"></span> / <span id="span2"></span> / <span id="span3"></span>
+            </p>
+        </article>
+
+<!--  -->
+
+    <section id="liveclock-section">
+        <h2 id="h2-liveclock">Live Clock</h2>
+    
+        <p class="code pre">
+    let liveClock = document.querySelector('#p12');
+    /* setInterval() works when stored in a variable. */
+    let currentTime = setInterval(getCurrentTime, 1000); // Place before defining the function.
+    
+    function getCurrentTime() { // Not predefined.
+        // Place variables inside the function so they're updated on each call.
+        let d = new Date();
+        let time = d.toLocaleTimeString();
+        liveClock.innerHTML = time;
+    }
+        </p>
+        <p id="p12"></p>
+        <button id="toggle-button">STOP THE COUNT!</button>
+    
+        <p class="code pre">
+    document.querySelector('#toggle-button').addEventListener('click', function() {
+        if(currentTime != false) {
+            clearInterval(currentTime);
+            currentTime = false;
+        } else if (currentTime == false) {
+            currentTime = setInterval(getCurrentTime, 1000)
+        }
+    })
+        </p>
+        <a href="https://stackoverflow.com/questions/2679141/is-there-a-way-to-check-if-a-var-is-using-setinterval/2679208">Stack Overflow: check if interval is set</a>
+    </section>
+
+<!--  -->
+
+    <script src="./main.js"></script>
+
+</body>
+</html>

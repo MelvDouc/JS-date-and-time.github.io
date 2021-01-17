@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 75%;
+}
+
+@media screen AND (max-width: 1366px) {
+    body {width: 95%}
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+    font-family: Candara, serif;
+    padding: .15em;
+}
+
+h1 {
+    background-color: limegreen;
+}
+
+h2 {
+    background-color: #fbfb8b;
+}
+
+h3 {
+    text-decoration: underline double;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+li {
+    margin: .75em auto;
+}
+
+li > p:not(.code) {
+    margin-block: .5em;
+    width: 50%;
+}
+
+mark {
+    /* background-color: rgba(0, 255, 255, 0.5); */
+    background-color: aquamarine;
+}
+
+code, .code {
+    background-color: #c8c8c8;
+    color: #333;
+    font-family: 'Lucida Console', Courier, monospace;
+}
+
+.pre {
+    white-space: pre;
+}
+
+.fit-content {
+    width: fit-content;
+}
+
+.red {
+    color: red;
+}
+
+.red-bg {
+    background-color: red;
+}
+
+.expli {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.expli::before {
+    content: '↳ ';
+}
+
+blockquote {
+    quotes:'« ' ' »' '“' '”';
+    font-family: 'Segoe Script', cursive;
+}
+
+blockquote::before {
+    content: open-quote;
+}
+
+blockquote::after {
+    content: close-quote;
+}
+
+section {
+    padding: .5em;
+}
+
+article:hover, #liveclock-section:hover {
+    outline: 1px solid #333;
+    box-shadow: 5px 5px 5px 2px lightgray, -5px -5px 5px 2px lightgray
+}
+
+#p12 {
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    font-family: 'Orbitron', Verdana, Geneva, Tahoma, sans-serif;
+    padding: .66em;
+    border: 4px ridge limegreen;
+    border-radius: 8px;
+    color: limegreen;
+    background: #333;
+    width: 140px;
+}
+
+#toggle-button {
+    all: initial;
+    text-align: center;
+    color: #eee;
+    background-color: limegreen;
+    font-family: 'Orbitron', Verdana;
+    padding: .33em;
+    width: 200px;
+    height: 25px;
+    border-radius: calc(25px / 2);
+}
+
+#toggle-button:hover {
+    background-color: rgb(13, 163, 13);
+    color: #fff;
+}
